@@ -1,0 +1,62 @@
+
+//add this to your css file to set the display property of chat function
+
+<style>
+    .chat p{
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        background-color: lightgoldenrodyellow;
+        border-radius: 5px;
+        padding: 3px;
+        text-align: left;
+        margin: 10px 0;
+        display: block;
+        width: 90%;
+    }
+    .chat p:nth-of-type(even) {background-color: lightblue;
+        border-radius: 5px;
+        padding: 3px;
+        text-align: right;
+        margin: 10px 0;
+        display: block;
+        width: 90%;
+    };
+    #chat{
+        position:absolute;
+        left:0;
+        right:0;
+        border:1px solid #000;  
+        overflow:auto;
+        top:0;
+        bottom:3em;
+    }
+
+</style>
+
+
+//Actual code for chat bot include this code in sidebar/index file by defining div width of 30%
+
+<div class="row">
+    <div class='box box-solid' style="border: 3px double rgba(14,77,135,0.51);
+                                      border-radius: 17px;">
+        <div class='box-header with-border'>
+            <h3 class='box-title'><b>Teejunction Chat <i class="fa fa-spinner fa-spin"></i></b></h3>
+        </div>
+        <div class='box-body' id="chat-box" style="height:180px; overflow: scroll; margin-bottom:10px; ">
+            <div class="chat" id="chat">
+
+                <p>Welcome<strong> <?php  if($userset!="NA"){echo $userset;}?></strong>! ask me something!</p>
+            </div>
+        </div>
+        <div class="box-footer" style=" width:100%; margin-top:5px; ">
+            <div style="width:78%; float:left;"><input style="width:100%;" type="text" id="userin" maxlength="100"></div>
+            <div style="width:20%; float:right;"><button id="chatbutton" style="font-size:18px; color:blue;" onclick="chat();"><i class="fa fa-send-o"></i></button></div>   
+        </div>
+        <div class="box-footer" style="border-radius:17px;"><button class="btn btn-primary" style="margin-left:60px;" onClick="printdiv('chat');">Print Transcript<i style="margin-left:2px" class="fa fa-print" aria-hidden="true"></i></button></div>
+    </div>
+
+
+</div>
+// don't forget to include chatbit.js file
+<script type="text/javascript" src="chatbot.js">
